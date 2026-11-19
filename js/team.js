@@ -103,7 +103,7 @@
 
   // Build the special leadership hierarchy displayed in the Operations panel.
   const leadershipPanel = data => {
-    const [founder, rajesh, giri, rakesh, brijesh] = data.leadership || [];
+    const [founder, giri, rakesh, brijesh] = data.leadership || [];
 
     return '<div class="executive-hierarchy">' +
       (founder
@@ -111,12 +111,11 @@
           personCard(founder, false, 'executive-chairman-card') +
           '</div>'
         : '') +
-      (founder && (rajesh || giri)
+      (founder && giri
         ? '<div class="executive-connector"></div>'
         : '') +
-      ((rajesh || giri)
+      (giri
         ? '<div class="executive-level executive-senior-level">' +
-          (rajesh ? personCard(rajesh, false, 'executive-senior-card') : '') +
           (giri ? personCard(giri, false, 'executive-senior-card') : '') +
           '</div>'
         : '') +
