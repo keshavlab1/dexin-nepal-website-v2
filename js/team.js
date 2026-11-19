@@ -21,8 +21,11 @@
     }[c]));
 
   // Keep profile names concise on cards while preserving full names in data.
-  const cleanName = n =>
-    String(n || '').replace(/^(Datuk Dr|Mr|Mrs|Ms|Dr)\.?\s+/i, '');
+  const cleanName = n => {
+    const name = String(n || '');
+    if (name === 'Datuk Dr Lim Siow Jin') return name;
+    return name.replace(/^(Datuk Dr|Mr|Mrs|Ms|Dr)\\.?\\s+/i, '');
+  };
 
   const initials = n =>
     cleanName(n)
